@@ -1,0 +1,47 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate form
+  steps:
+  - intent: giving_place_type
+  - action: place_search_form
+  - active_loop: place_search_form
+
+- rule: Submit form
+  condition:
+  - active_loop: place_search_form
+  steps:
+  - action: place_search_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_beginning_search
+  - action: action_places_search
+
+
+- rule: Activate form flight
+  steps:
+  - intent: plane_tickets
+  - action: flight_form
+  - active_loop: flight_form
+
+- rule: Submit form flight
+  condition:
+  - active_loop: flight_form
+  steps:
+  - action: name_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_okay_flight

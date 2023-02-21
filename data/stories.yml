@@ -1,0 +1,103 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: plane tickets
+  steps:
+  - intent: plane_tickets
+  - action: flight_form
+  - active_loop: flight_form
+  - slot_was_set:
+    - requested_slot: flight_origin
+  - slot_was_set:
+    - flight_origin: mexico city
+  - slot_was_set:
+    - requested_slot: flight_destination
+  - slot_was_set:
+    - flight_destination: madrid
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_okay_flight
+    
+
+- story: find a restaurant
+  steps:
+  - intent: place_to_eat
+  - action: utter_ask_place_type
+  - intent: giving_place_type
+    entities:
+    - place_type: restaurants
+  - slot_was_set:
+    - place_type: restaurants
+  - action: place_search_form
+  - active_loop: place_search_form
+  - slot_was_set:
+    - requested_slot: address
+  - slot_was_set:
+    - lat_lon: 51.5073219,-0.1276474
+  - slot_was_set:
+    - address:
+      - London
+  - slot_was_set:
+    - requested_slot: radius
+  - slot_was_set:
+    - radius: '10.0'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_beginning_search
+  - action: action_places_search
+  - intent: giving_radius
+    entities:
+    - radius: '50'
+  - slot_was_set:
+    - radius: '50.0'
+  - action: action_beginning_search
+  - action: action_places_search
+  - action: utter_ask_address
+  - intent: giving_address
+  - action: utter_goodbye
+
+- story: buy_thing
+  steps:
+  - intent: buy_specific
+  - action: item_form
+  - active_loop: item_form
+  - slot_was_set:
+    - requested_slot: item
+  - slot_was_set:
+    - flight_origin: toothbrush
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_buy_query
+  - action: utter_price

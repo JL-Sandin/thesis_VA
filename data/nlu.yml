@@ -1,0 +1,199 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: buy_specific
+  examples: |
+   - I want to buy items from site
+   - Fetch prices
+   - I would like to purchase some items
+   - buy
+   - purchase
+   - acquire items
+   - interest in items
+   - buy stuff
+   - want to buy things
+   - i want to purchase household items
+   - i desire to acquire some movies
+   - get prices for items
+
+- intent: plane_tickets
+  examples: |
+   - I need to fly
+   - Can you help me with flights 
+   - I want to vacation
+   - book flight tickets
+   - flight
+   - book fly
+
+- intent: giving_place_type
+  examples: |
+   - I want to look for [restaurants](place_type)
+   - I would like to make a search for [restaurants](place_type)
+   - Look for [both restaurants and coffee houses](place_type)
+   - Search for them [both](place_type)	
+   - Look for [restaurants](place_type) instead
+   - Look for [coffee houses](place_type) instead
+   - Look for them [both](place_type)
+
+- intent: giving_address
+  examples: |
+   - I live in [Coapa](address), [Ciudad de México](address), [México](address)
+   - I want to search places in [Beijing](address), [China](address)
+   - [London](address)
+   - [Toronto](address)
+   - [New York](address)
+   - [Manhattan](address)
+   - [Cancun](address)
+   - Find venues in [Paris](address)
+   - I am currently at [Scaraborough Civic Center](address), [Toronto](address), [ON](address)
+   - Search near [Paseo de la Reforma](address), [Ciudad de Mexico](address)
+   - in [Ocala](address)
+   - Near [Stuttgart](address)
+   - Currently at [Machu Picchu](address)
+   - Close to [Avenida Moliere](address), [Polanco](address)
+   - in [Insurgentes Sur](address)
+
+- intent: giving_radius
+  examples: |
+   - Use a radius of [5](radius) kilometers
+   - [20](radius)
+   - [ninety](radius)
+   - [fifty](radius) kilometers
+   - Search within [15](radius) kilometers of me
+   - Search within [ten](radius) kilometers of me
+   - About [6](radius) kilometers
+
+
+- intent: place_to_eat
+  examples: |
+   - I want to find a place to eat
+   - I am starving, where can I eat?
+   - I get very hungry this late, where can we go?
+   - Where can I take my date for a dinner?
+   - Where could I grab a bite?
+   - Tell me places to eat
+   - Give me venues to lunch
+   - Where can I have dinner?
+   - Where are we eating today?
+
+- synonym: both restaurants and coffee houses
+  examples: |
+    - both
+    - both restaurants and coffee house
+    - both restaurant and coffee houses
+    - both restaurant and coffee house
+    - restaurant and coffee house
+    - restaurant and coffee houses
+    - restaurants and coffee house
+    - restaurants and coffee houses
+    - both coffee houses and restaurants
+    - both coffee houses and restaurant
+    - both coffee house and restaurants
+    - both coffee house and restaurant
+    - coffee houses and restaurants
+    - coffee house and restaurants
+    - coffee houses and restaurant
+    - coffee house and restaurant
+    - cafes and restaurants
+    - cafe and restaurant
+    - café and restaurant
+    - both café and restaurants
+- synonym: restaurants
+  examples: |
+    - restaurant
+- synonym: cafes
+  examples: |
+    - coffee house
+    - coffee
+    - cafe
+    - café
+    - cafés
